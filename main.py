@@ -19,7 +19,7 @@ Discoverability: How likely is it to discover the threat? (Should always be assu
         input("Rating Threat with DREAD Model. Enter 1-5 for severity ratings for the following questions. Press "
               "enter to continue")
         try:
-            damage = int(input("What is the damage potential?"))
+            damage = int(input("What is the damage potential? "))
             reproducibility = int(input("What is the reproducibility rating? "))
             exploitability = int(input("What is the exploitability rating? "))
             affectedusers = int(input("What is the Affected Users rating? "))
@@ -314,28 +314,32 @@ Useful for overall impact to both technical and business functions"""
 
 if __name__ == "__main__":
     model = input("Which model would you like to use?\r\n1. DREAD\r\n2.OWASP\r\n3.STRIDE\r\n4.CVSS\r\n")
-    try:
-        if int(model) == 1:
-            print(Dread.definition)
-            print(Dread.rating_def)
-            threat = Dread()
-        if int(model) == 2:
-            print(Owasp.definition)
-            print(Owasp.rating_def)
-            threat = Owasp()
-        if int(model) == 3:
-            print(Stride.definition)
-            print(Stride.rating_def)
-            threat = Stride()
-        if int(model) == 4:
-            print(Cvss.definition)
-            print(Cvss.rating_def)
-            threat = Cvss()
-    except ValueError as e:
-        print(e)
-    except TypeError as e:
-        print(e)
-    except Exception as e:
-        print(f"Program failed: {e}")
+    next_vulnerability = "y"
+    while next_vulnerability == "y":
+        try:
+            if int(model) == 1:
+                print(Dread.definition)
+                print(Dread.rating_def)
+                threat = Dread()
+            if int(model) == 2:
+                print(Owasp.definition)
+                print(Owasp.rating_def)
+                threat = Owasp()
+            if int(model) == 3:
+                print(Stride.definition)
+                print(Stride.rating_def)
+                threat = Stride()
+            if int(model) == 4:
+                print(Cvss.definition)
+                print(Cvss.rating_def)
+                threat = Cvss()
+        except ValueError as e:
+            print(e)
+        except TypeError as e:
+            print(e)
+        except Exception as e:
+            print(f"Program failed: {e}")
+        print(threat.rating)
+        next_vulnerability = input("Would you like to rate another vulnerability? ")[0].lower()
 
-    print(threat.rating)
+    print("[-] Exiting")
