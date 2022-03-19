@@ -98,46 +98,66 @@ Useful for overall impact to both technical and business functions"""
 
     def __init__(self):
         self.rating = self.get_rating()
-
-    @staticmethod
-    def get_rating():
+    def get_explanation(self):
+        explanation = input("What is the explanation for this rating?\r\n")
+        return explanation
+    def get_rating(self):
         input("Rating Threat with OWASP Model. Enter 1-5 for severity ratings for the following questions.")
         try:
             print("Step 1: Threat Agent Factors")
-            skill_level = int(input("What is the technical skill level of the threat agents? "))
-            motive = int(input("How motivated is the group of threat agents? "))
-            opportunity = int(input("What resources and opportunities are required for this group of threat agents? "))
-            size = int(input("How large is the group of threat agents? "))
+            self.skill_level = int(input("What is the technical skill level of the threat agents? "))
+            self.skill_level_explanation = self.get_explanation()
+            self.motive = int(input("How motivated is the group of threat agents? "))
+            self.motive_explanation = self.get_explanation()
+            self.opportunity = int(input("What resources and opportunities are required for this group of threat agents? "))
+            self.opportunity_explanation = self.get_explanation()
+            self.size = int(input("How large is the group of threat agents? "))
+            self.size_explanation = self.get_explanation()
             print("Step 2: Vulnerability Factors")
-            discoverability = int(
+            self.discoverability = int(
                 input("How easy is it for this group of threat agents to discover this vulnerability? "))
-            exploitability = int(input("How easy is it to exploit this vulnerability? "))
-            awareness = int(input("How well known is this vulnerability to the threat agents? "))
-            detection = int(input("How likely is the exploit to be detected? "))
-            likelihood = (
-                                 skill_level + motive + opportunity + size + discoverability + exploitability + awareness + detection) / 8
+            self.discoverability_explanation = self.get_explanation()
+            self.exploitability = int(input("How easy is it to exploit this vulnerability? "))
+            self.exploitability_explanation = self.get_explanation()
+            self.awareness = int(input("How well known is this vulnerability to the threat agents? "))
+            self.awareness_explanation = self.get_explanation()
+            self.detection = int(input("How likely is the exploit to be detected? "))
+            self.detection_explanation = self.get_explanation()
+            self.likelihood = (
+                                 self.skill_level + self.motive + self.opportunity + self.size + self.discoverability +
+                                 self.exploitability + self.awareness + self.detection) / 8
             print("Step 3: Technical Impact Factors")
-            confidentiality = int(input("How much data could be disclosed and how sensitive is it? "))
-            integrity = int(input("How much data could be corrupted and how damaged is it? "))
-            availability = int(input("How much service loss could occur and how vital is it? "))
-            accountability = int(input("Are the threat agents actions traceable to an individual? "))
-            technical = (confidentiality + availability + integrity + accountability) / 4
+            self.confidentiality = int(input("How much data could be disclosed and how sensitive is it? "))
+            self.confidentiality_explanation = self.get_explanation()
+            self.integrity = int(input("How much data could be corrupted and how damaged is it? "))
+            self.integrity_explanation = self.get_explanation()
+            self.availability = int(input("How much service loss could occur and how vital is it? "))
+            self.availability_explanation = self.get_explanation()
+            self.accountability = int(input("Are the threat agents actions traceable to an individual? "))
+            self.accountability_explanation = self.get_explanation()
+            self.technical = (self.confidentiality + self.availability + self.integrity + accountability) / 4
+            self.technical_explanation = self.get_explanation()
             print("Step 4: Business Impact Factors")
-            financial = int(input("How much financial damage would result from an exploit? "))
-            reputation = int(input("Would an exploit result in reputation damage? "))
-            compliance = int(input("How much exposure does non-compliance introduce? "))
-            privacy = int(input("How much PII could be disclosed? "))
-            bussiness = (financial + reputation + compliance + privacy) / 4
-            rating = (likelihood + technical + bussiness) / 3
-            if int(round(rating, 0)) == 1:
+            self.financial = int(input("How much financial damage would result from an exploit? "))
+            self.financial_explanation = self.get_explanation()
+            self.reputation = int(input("Would an exploit result in reputation damage? "))
+            self.reputation_explanation = self.get_explanation()
+            self.compliance = int(input("How much exposure does non-compliance introduce? "))
+            self.compliance_explanation = self.get_explanation()
+            self.privacy = int(input("How much PII could be disclosed? "))
+            self.privacy_explanation = self.get_explanation()
+            self.bussiness = (self.financial + self.reputation + self.compliance + self.privacy) / 4
+            self.bussiness_explanation = self.get_explanation()
+            self.rating = (self.likelihood + self.technical + self.bussiness) / 3
+            if int(round(self.rating, 0)) == 1:
                 return "This threat is rated as: Informational"
-            if int(round(rating, 0)) == 2:
+            if int(round(self.rating, 0)) == 2:
                 return "This threat is rated as: Low"
-            if int(round(rating, 0)) == 3:
+            if int(round(self.rating, 0)) == 3:
                 return "This threat is rated as: Medium"
-            if int(round(rating, 0)) == 4:
+            if int(round(self.rating, 0)) == 4:
                 return "This threat is rated as: High"
-            if int(round(rating, 0)) == 5:
+            if int(round(self.rating, 0)) == 5:
                 return "This threat is rated as: Critical"
         except ValueError as e:
             print(e)
