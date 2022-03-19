@@ -33,7 +33,7 @@ Discoverability: How likely is it to discover the threat? (Should always be assu
                       f'- Explanation: {self.exploitability_explanation}\r\n' \
                       f'- Affected Users Rating: {self.affectedusers}\r\n' \
                       f'- Explanation: {self.affectedusers_explanation}\r\n' \
-                      f'- Discoverabilty Rating: {self.discoverability}\r\n' \
+                      f'- Discoverability Rating: {self.discoverability}\r\n' \
                       f'- Explanation: {self.discoverability_explanation}\r\n' \
                       f'- {self.rating}\r\n' \
                       f'-----------------------------'
@@ -41,11 +41,13 @@ Discoverability: How likely is it to discover the threat? (Should always be assu
         f.close()
         return True
 
-    def get_name(self):
+    @staticmethod
+    def get_name():
         name = input("What is the name of the vulnerability/finding?\r\n")
         return name
 
-    def get_explanation(self):
+    @staticmethod
+    def get_explanation():
         explanation = input("What is the explanation for this rating?\r\n")
         return explanation
 
@@ -97,7 +99,8 @@ Useful for overall impact to both technical and business functions"""
     def __init__(self):
         self.rating = self.get_rating()
 
-    def get_rating(self):
+    @staticmethod
+    def get_rating():
         input("Rating Threat with OWASP Model. Enter 1-5 for severity ratings for the following questions.")
         try:
             print("Step 1: Threat Agent Factors")
@@ -163,7 +166,8 @@ Escalation of Privileges: Severity of overall escalation of privileges paths ide
     def __init__(self):
         self.rating = self.get_rating()
 
-    def get_rating(self):
+    @staticmethod
+    def get_rating():
         input("Rating Threat with STRIDE Model. Enter 1-5 for severity ratings for the following questions. Press "
               "enter to continue")
         try:
@@ -208,12 +212,14 @@ Useful for overall impact to both technical and business functions"""
         self.environmental = self.get_environmental()
         self.rating = f'Base: {self.base}\r\nTemporal: {self.temporal}\r\nEnvironmental: {self.environmental}'
 
-    def get_rating(self):
+    @staticmethod
+    def get_rating():
         input("Rating Threat with CVSS Model. Follow prompts for the following questions. Press "
               "enter to continue")
         try:
             attack_vector = int(input(
-                "Enter the attack vector:\r\n1. Physical\r\n2. Local\r\n3. Adjacent Network\r\n4. Network (Internet)\r\n"))
+                "Enter the attack vector:\r\n1. Physical\r\n2. Local\r\n3. Adjacent Network\r\n"
+                "4. Network (Internet)\r\n"))
             complexity = int(input("Enter the Attack complexity:\r\n1. High\r\n2. Low\r\n"))
             if complexity == 2:
                 complexity == 5
@@ -229,7 +235,7 @@ Useful for overall impact to both technical and business functions"""
             if scope == 2:
                 scope == 3
             confidentiality = int(
-                input("What is the impact to data confidentialitiy?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
+                input("What is the impact to data confidentiality?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
             if confidentiality == 3:
                 confidentiality = 4
             integrity = int(input("What is the impact to data integrity?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
@@ -272,9 +278,16 @@ Useful for overall impact to both technical and business functions"""
             if base == "Critical":
                 base_score = 5
             exploit = int(input(
-                "Enter level of exploit code maturity\r\n2. No Exploit\r\n4. Proof of concept\r\n5. Funcitonal Exploit exists\r\n"))
+                "Enter level of exploit code maturity\r\n"
+                "2. No Exploit\r\n"
+                "4. Proof of concept\r\n"
+                "5. Funcitonal Exploit exists\r\n"))
             remediation = int(input(
-                "Enter remediation level: \r\n2. Official Fix\r\n3. Temporary Fix\r\n4. Workaround\r\n5. Unavailable\r\n"))
+                "Enter remediation level: \r\n"
+                "2. Official Fix\r\n"
+                "3. Temporary Fix\r\n"
+                "4. Workaround\r\n"
+                "5. Unavailable\r\n"))
             report = int(input("Enter Report Confidence: \r\n2. Unknown\r\n3. Reasonable\r\n5. Confirmed\r\n"))
             temporal = (exploit + remediation + report) / 3
             rating = (base_score + temporal) / 2
@@ -309,7 +322,8 @@ Useful for overall impact to both technical and business functions"""
             if self.base == "Critical":
                 base_score = 5
             attack_vector = int(input(
-                "Enter the attack vector:\r\n1. Physical\r\n2. Local\r\n3. Adjacent Network\r\n4. Network (Internet)\r\n"))
+                "Enter the attack vector:\r\n"
+                "1. Physical\r\n2. Local\r\n3. Adjacent Network\r\n4. Network (Internet)\r\n"))
             complexity = int(input("Enter the Attack complexity:\r\n1. High\r\n2. Low"))
             if complexity == 2:
                 complexity == 5
@@ -325,7 +339,7 @@ Useful for overall impact to both technical and business functions"""
             if scope == 2:
                 scope == 3
             confidentiality = int(
-                input("What is the impact to data confidentialitiy?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
+                input("What is the impact to data confidentiality?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
             if confidentiality == 3:
                 confidentiality = 4
             integrity = int(input("What is the impact to data integrity?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
