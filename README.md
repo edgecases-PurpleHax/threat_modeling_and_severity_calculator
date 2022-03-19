@@ -1,4 +1,4 @@
-# Threat Modeling Demonstration and Calculator
+# Threat Modeling and Severity Calculator
 ## Threat Models used
 * DREAD
 * OWASP
