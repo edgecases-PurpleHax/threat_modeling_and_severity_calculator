@@ -40,6 +40,7 @@ Discoverability: How likely is it to discover the threat? (Should always be assu
             f.write(payload)
         f.close()
         return True
+
     def get_name(self):
         name = input("What is the name of the vulnerability/finding?\r\n")
         return name
@@ -63,7 +64,8 @@ Discoverability: How likely is it to discover the threat? (Should always be assu
             self.affectedusers_explanation = self.get_explanation()
             self.discoverability = int(input("What is the discoverability rating? (Use 5 if not sure) "))
             self.discoverability_explanation = self.get_explanation()
-            rating = (self.damage + self.reproducibility + self.exploitability + self.affectedusers + self.discoverability) / 5
+            rating = (
+                                 self.damage + self.reproducibility + self.exploitability + self.affectedusers + self.discoverability) / 5
             if int(round(rating, 0)) == 1:
                 return "This threat is rated as: Informational"
             if int(round(rating, 0)) == 2:
