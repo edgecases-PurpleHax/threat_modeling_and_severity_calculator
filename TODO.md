@@ -1,6 +1,6 @@
 # Things TODO
 
-- [ ] Create reporting feature for OWASP
+- [ ] Create reporting feature for OWASP(WIP)
 - [ ] Create reporting feature for STRIDE
 - [ ] Create reporting feature for CVSS
 - [ ] Get a better set of docs together
