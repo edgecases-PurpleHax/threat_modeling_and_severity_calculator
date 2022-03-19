@@ -67,7 +67,7 @@ Discoverability: How likely is it to discover the threat? (Should always be assu
             self.discoverability = int(input("What is the discoverability rating? (Use 5 if not sure) "))
             self.discoverability_explanation = self.get_explanation()
             rating = (
-                                 self.damage + self.reproducibility + self.exploitability + self.affectedusers + self.discoverability) / 5
+                             self.damage + self.reproducibility + self.exploitability + self.affectedusers + self.discoverability) / 5
             if int(round(rating, 0)) == 1:
                 return "This threat is rated as: Informational"
             if int(round(rating, 0)) == 2:
@@ -98,18 +98,50 @@ Useful for overall impact to both technical and business functions"""
 
     def __init__(self):
         self.rating = self.get_rating()
-    def get_explanation(self):
+        self.report = input("Write to report? ")
+        if self.report[0].lower() == "y":
+            self.write_report()
+
+    @staticmethod
+    def get_name():
+        name = input("What is the name of the vulnerability/finding?\r\n")
+        return name
+
+    def write_report(self):
+        with open(f'{time.strftime("%Y-%m-%d")}_threat_report.txt', 'a+') as f:
+            payload = f'-----------------------------\r\n' \
+                      f'- Vulnerability name: {self.name}\r\n' \
+                      f'' \
+                      f'' \
+                      f'' \
+                      f'' \
+                      f'' \
+                      f'' \
+                      f'' \
+                      f'' \
+                      f'' \
+                      f'' \
+                      f'- {self.rating}\r\n' \
+                      f'-----------------------------'
+            f.write(payload)
+        f.close()
+
+    @staticmethod
+    def get_explanation():
         explanation = input("What is the explanation for this rating?\r\n")
         return explanation
+
     def get_rating(self):
         input("Rating Threat with OWASP Model. Enter 1-5 for severity ratings for the following questions.")
         try:
+            self.name = self.get_name()
             print("Step 1: Threat Agent Factors")
             self.skill_level = int(input("What is the technical skill level of the threat agents? "))
             self.skill_level_explanation = self.get_explanation()
             self.motive = int(input("How motivated is the group of threat agents? "))
             self.motive_explanation = self.get_explanation()
-            self.opportunity = int(input("What resources and opportunities are required for this group of threat agents? "))
+            self.opportunity = int(
+                input("What resources and opportunities are required for this group of threat agents? "))
             self.opportunity_explanation = self.get_explanation()
             self.size = int(input("How large is the group of threat agents? "))
             self.size_explanation = self.get_explanation()
@@ -124,8 +156,8 @@ Useful for overall impact to both technical and business functions"""
             self.detection = int(input("How likely is the exploit to be detected? "))
             self.detection_explanation = self.get_explanation()
             self.likelihood = (
-                                 self.skill_level + self.motive + self.opportunity + self.size + self.discoverability +
-                                 self.exploitability + self.awareness + self.detection) / 8
+                                      self.skill_level + self.motive + self.opportunity + self.size + self.discoverability +
+                                      self.exploitability + self.awareness + self.detection) / 8
             print("Step 3: Technical Impact Factors")
             self.confidentiality = int(input("How much data could be disclosed and how sensitive is it? "))
             self.confidentiality_explanation = self.get_explanation()
