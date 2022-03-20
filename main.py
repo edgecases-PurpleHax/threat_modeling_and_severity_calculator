@@ -22,7 +22,7 @@ Discoverability: How likely is it to discover the threat? (Should always be assu
             self.write_report()
 
     def write_report(self):
-        with open(f'{time.strftime("%Y-%m-%d")}_threat_report.txt', 'a+') as f:
+        with open(f'{time.strftime("%Y-%m-%d")}_threat_report_DREAD_method.txt', 'a+') as f:
             payload = f'-----------------------------\r\n' \
                       f'- Vulnerability name: {self.name}\r\n' \
                       f'- Damage Rating: {self.damage}\r\n' \
@@ -66,8 +66,8 @@ Discoverability: How likely is it to discover the threat? (Should always be assu
             self.affectedusers_explanation = self.get_explanation()
             self.discoverability = int(input("What is the discoverability rating? (Use 5 if not sure) "))
             self.discoverability_explanation = self.get_explanation()
-            rating = (
-                             self.damage + self.reproducibility + self.exploitability + self.affectedusers + self.discoverability) / 5
+            rating = (self.damage + self.reproducibility + self.exploitability +
+                      self.affectedusers + self.discoverability) / 5
             if int(round(rating, 0)) == 1:
                 return "This threat is rated as: Informational"
             if int(round(rating, 0)) == 2:
@@ -107,29 +107,43 @@ Useful for overall impact to both technical and business functions"""
         name = input("What is the name of the vulnerability/finding?\r\n")
         return name
 
-    def write_report(self):
-        with open(f'{time.strftime("%Y-%m-%d")}_threat_report.txt', 'a+') as f:
-            payload = f'-----------------------------\r\n' \
-                      f'- Vulnerability name: {self.name}\r\n' \
-                      f'' \
-                      f'' \
-                      f'' \
-                      f'' \
-                      f'' \
-                      f'' \
-                      f'' \
-                      f'' \
-                      f'' \
-                      f'' \
-                      f'- {self.rating}\r\n' \
-                      f'-----------------------------'
-            f.write(payload)
-        f.close()
-
     @staticmethod
     def get_explanation():
         explanation = input("What is the explanation for this rating?\r\n")
         return explanation
+
+    def write_report(self):
+        with open(f'{time.strftime("%Y-%m-%d")}_threat_report_OWASP_method.txt', 'a+') as f:
+            payload = f'-----------------------------\r\n' \
+                      f'Vulnerability name: {self.name}\r\n' \
+                      f'Likelihood rating: {self.likelihood}\r\n' \
+                      f'Likelihood factor analysis:\r\n' \
+                      f'    Skill Level: {self.skill_level_explanation}\r\n' \
+                      f'    Motive: {self.motive_explanation}\r\n' \
+                      f'    Opportunity: {self.opportunity_explanation}\r\n' \
+                      f'    Size: {self.size_explanation}\r\n' \
+                      f'    Discoverability: {self.discoverability_explanation}\r\n' \
+                      f'    Exploitability: {self.exploitability_explanation}\r\n' \
+                      f'    Awareness: {self.awareness_explanation}\r\n' \
+                      f'    Detection: {self.detection_explanation}\r\n' \
+                      f'Technical Impact rating: {self.technical}\r\n' \
+                      f'Technical Impact analysis:\r\n' \
+                      f'    Confidentiality: {self.confidentiality_explanation}\r\n' \
+                      f'    Integrity: {self.integrity_explanation}\r\n' \
+                      f'    Availability: {self.availability_explanation}\r\n' \
+                      f'    Accountability: {self.accountability_explanation}\r\n' \
+                      f'    Motive: {self.motive_explanation}\r\n' \
+                      f'    Opportunity: {self.opportunity_explanation}\r\n' \
+                      f'Business Impact rating: {self.business}\r\n' \
+                      f'Business Impact analysis:\r\n' \
+                      f'    Financial: {self.financial_explanation}\r\n' \
+                      f'    Reputation: {self.reputation_explanation}\r\n' \
+                      f'    Compliance: {self.compliance_explanation}\r\n' \
+                      f'    Privacy: {self.privacy_explanation}\r\n' \
+                      f'Overall Rating: {self.rating}\r\n' \
+                      f'-----------------------------'
+            f.write(payload)
+        f.close()
 
     def get_rating(self):
         input("Rating Threat with OWASP Model. Enter 1-5 for severity ratings for the following questions.")
@@ -155,9 +169,8 @@ Useful for overall impact to both technical and business functions"""
             self.awareness_explanation = self.get_explanation()
             self.detection = int(input("How likely is the exploit to be detected? "))
             self.detection_explanation = self.get_explanation()
-            self.likelihood = (
-                                      self.skill_level + self.motive + self.opportunity + self.size + self.discoverability +
-                                      self.exploitability + self.awareness + self.detection) / 8
+            self.likelihood = (self.skill_level + self.motive + self.opportunity + self.size + self.discoverability +
+                               self.exploitability + self.awareness + self.detection) / 8
             print("Step 3: Technical Impact Factors")
             self.confidentiality = int(input("How much data could be disclosed and how sensitive is it? "))
             self.confidentiality_explanation = self.get_explanation()
@@ -167,8 +180,7 @@ Useful for overall impact to both technical and business functions"""
             self.availability_explanation = self.get_explanation()
             self.accountability = int(input("Are the threat agents actions traceable to an individual? "))
             self.accountability_explanation = self.get_explanation()
-            self.technical = (self.confidentiality + self.availability + self.integrity + accountability) / 4
-            self.technical_explanation = self.get_explanation()
+            self.technical = (self.confidentiality + self.availability + self.integrity + self.accountability) / 4
             print("Step 4: Business Impact Factors")
             self.financial = int(input("How much financial damage would result from an exploit? "))
             self.financial_explanation = self.get_explanation()
@@ -178,18 +190,17 @@ Useful for overall impact to both technical and business functions"""
             self.compliance_explanation = self.get_explanation()
             self.privacy = int(input("How much PII could be disclosed? "))
             self.privacy_explanation = self.get_explanation()
-            self.bussiness = (self.financial + self.reputation + self.compliance + self.privacy) / 4
-            self.bussiness_explanation = self.get_explanation()
-            self.rating = (self.likelihood + self.technical + self.bussiness) / 3
-            if int(round(self.rating, 0)) == 1:
+            self.business = (self.financial + self.reputation + self.compliance + self.privacy) / 4
+            rating = (self.likelihood + self.technical + self.business) / 3
+            if int(round(rating, 0)) == 1:
                 return "This threat is rated as: Informational"
-            if int(round(self.rating, 0)) == 2:
+            if int(round(rating, 0)) == 2:
                 return "This threat is rated as: Low"
-            if int(round(self.rating, 0)) == 3:
+            if int(round(rating, 0)) == 3:
                 return "This threat is rated as: Medium"
-            if int(round(self.rating, 0)) == 4:
+            if int(round(rating, 0)) == 4:
                 return "This threat is rated as: High"
-            if int(round(self.rating, 0)) == 5:
+            if int(round(rating, 0)) == 5:
                 return "This threat is rated as: Critical"
         except ValueError as e:
             print(e)
