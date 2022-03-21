@@ -1,7 +1,8 @@
 from Severity_Models.severity_models import *
 
 if __name__ == "__main__":
-    model = input("Which model would you like to use?\r\n1. DREAD\r\n2.OWASP\r\n3.STRIDE\r\n4.CVSS\r\n")
+    model = input(
+        "Which model would you like to use?\r\n1. DREAD\r\n2.OWASP\r\n3.STRIDE\r\n4.CVSS\r\n")
     next_vulnerability = "y"
     while next_vulnerability == "y":
         try:
@@ -28,5 +29,6 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Program failed: {e}")
         print(threat.rating)
-        next_vulnerability = input("Would you like to rate another vulnerability? ")[0].lower()
+        next_vulnerability = input(
+            "Would you like to rate another vulnerability? ")[0].lower()
     print("[-] Exiting")
