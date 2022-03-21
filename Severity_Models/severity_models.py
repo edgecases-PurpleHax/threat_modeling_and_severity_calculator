@@ -1,6 +1,7 @@
 import time
 import os.path
 
+
 class Dread:
     definition = """
 Damage potential: How great can the damage be?
@@ -418,7 +419,7 @@ Useful for overall impact to both technical and business functions"""
                       f'    Scope Modification: {self.scope_env}\r\n' \
                       f'    Impact to Confidentiality: {self.confidentiality_env}\r\n' \
                       f'    Impact to Integrity: {self.integrity_env}\r\n' \
-                      f'    Impact to Availability: {self.availability_env}\r\n'\
+                      f'    Impact to Availability: {self.availability_env}\r\n' \
                       f'-----------------------------'
             f.write(payload)
         f.close()
@@ -601,5 +602,3 @@ Useful for overall impact to both technical and business functions"""
             print(e)
         except Exception as e:
             print(f"Something went wrong while creating the Environmental Score: {e}")
-
-
