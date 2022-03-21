@@ -1,5 +1,6 @@
 from Severity_Models.severity_models import *
 
+
 if __name__ == "__main__":
     model = input("Which model would you like to use?\r\n1. DREAD\r\n2.OWASP\r\n3.STRIDE\r\n4.CVSS\r\n")
     next_vulnerability = "y"
