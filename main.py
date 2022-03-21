@@ -502,6 +502,10 @@ Useful for overall impact to both technical and business functions"""
                 "3. Temporary Fix\r\n"
                 "4. Workaround\r\n"
                 "5. Unavailable\r\n"))
+            if exploit == 1:
+                exploit = 2
+            if exploit == 3:
+                exploit = 4
             self.remediation = mapping['remediation'][remediation]
 
             report = int(input("Enter Report Confidence: \r\n2. Unknown\r\n3. Reasonable\r\n5. Confirmed\r\n"))
