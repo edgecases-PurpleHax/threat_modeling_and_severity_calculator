@@ -308,43 +308,152 @@ Useful for overall impact to both technical and business functions"""
 3: Medium
 4: High
 5: Critical"""
+    mapping = {
+        "attack vector": {
+            1: "Physical",
+            2: "Local",
+            3: "Adjacent Network",
+            4: "Network (Internet)"
+        },
+        "complexity": {
+            1: "High",
+            2: "Low"
+        },
+        "privileges": {
+            1: "High Level of Privileges",
+            2: "Low Level of Privileges",
+            3: "No privileges required"
+        },
+        "user": {
+            1: "User Action Required",
+            2: "No User Action Required"
+        },
+        "scope": {
+            1: "Changed",
+            2: "Unchanged"
+        },
+        "confidentiality": {
+            1: "None",
+            2: "Low",
+            3: "High",
+        },
+        "integrity": {
+            1: "None",
+            2: "Low",
+            3: "High"
+        },
+        "availability": {
+            1: "None",
+            2: "Low",
+            3: "High"
+        },
+        "exploit": {
+            2: "No Exploit",
+            4: "Proof of concept",
+            5: "Funcitonal Exploit exists"
+        },
+        "remediation": {
+            2: "Official Fix",
+            3: "Temporary Fix",
+            4: "Workaround",
+            5: "Unavailable"
+        },
+        "report confidence": {
+            2: "Unknown",
+            3: "Reasonable",
+            5: "Confirmed"
+        }
+    }
 
     def __init__(self):
         self.base = self.get_rating()
         self.temporal = self.get_temporal()
         self.environmental = self.get_environmental()
         self.rating = f'Base: {self.base}\r\nTemporal: {self.temporal}\r\nEnvironmental: {self.environmental}'
+        self.report = input("Write to report? ")
+        if self.report[0].lower() == 'y':
+            self.write_report()
 
     @staticmethod
-    def get_rating():
+    def get_name():
+        name = input("What is the name of the vulnerability/finding?\r\n")
+        return name
+
+    @staticmethod
+    def get_explanation():
+        explanation = input("What is the explanation for this rating?\r\n")
+        return explanation
+
+    def write_report(self):
+        with open(f'{time.strftime("%Y-%m-%d")}_threat_report_CVSS_BASIC_method.txt', 'a+') as f:
+            payload = f'-----------------------------\r\n' \
+                      f'Vulnerability name: {self.name}\r\n' \
+                      f'Base Rating: {self.base}\r\n' \
+                      f'    Attack Vector: {self.attack_vector}\r\n' \
+                      f'    Complexity: {self.complexity}\r\n' \
+                      f'    Required Privileges: {self.privs}\r\n' \
+                      f'    Required User Interaction: {self.user}\r\n' \
+                      f'    Scope Modification: {self.scope}\r\n' \
+                      f'    Impact to Confidentiality: {self.confidentiality}\r\n' \
+                      f'    Impact to Integrity: {self.integrity}\r\n' \
+                      f'    Impact to Availability: {self.availability}\r\n' \
+                      f'Temporal Rating: {self.temporal}\r\n' \
+                      f'    Exploit Modifier: {self.exploit}\r\n' \
+                      f'    Available Remediation Modifier: {self.remediation}\r\n' \
+                      f'    Report Confidence Modifier: {self.report_confidence}\r\n' \
+                      f'    Report Confidence Analysis: {self.report_confidence_analysis}\r\n' \
+                      f'Environmental Rating (Base score modified by Environment): {self.environmental}\r\n' \
+                      f'    Attack Vector: {self.attack_vector_env}\r\n' \
+                      f'    Complexity: {self.complexity_env}\r\n' \
+                      f'    Required Privileges: {self.privs_env}\r\n' \
+                      f'    Required User Interaction: {self.user_env}\r\n' \
+                      f'    Scope Modification: {self.scope_env}\r\n' \
+                      f'    Impact to Confidentiality: {self.confidentiality_env}\r\n' \
+                      f'    Impact to Integrity: {self.integrity_env}\r\n' \
+                      f'    Impact to Availability: {self.availability_env}\r\n'\
+                      f'-----------------------------'
+            f.write(payload)
+        f.close()
+
+    def get_rating(self):
         input("Rating Threat with CVSS Model. Follow prompts for the following questions. Press "
               "enter to continue")
         try:
+            mapping = self.mapping
+            self.name = self.get_name()
             attack_vector = int(input(
                 "Enter the attack vector:\r\n1. Physical\r\n2. Local\r\n3. Adjacent Network\r\n"
                 "4. Network (Internet)\r\n"))
+            self.attack_vector = mapping["attack vector"][attack_vector]
             complexity = int(input("Enter the Attack complexity:\r\n1. High\r\n2. Low\r\n"))
+            self.complexity = mapping["complexity"][complexity]
             if complexity == 2:
                 complexity == 5
             privs = int(input("Enter the privileges required:\r\n1. High privs\r\n2. Low privs\r\n3. None\r\n"))
+            self.privs = mapping["privileges"][privs]
             if privs == 3:
                 privs = 5
             if privs == 2:
                 privs == 3
             user = int(input("Is user action required?\r\n1. Required\r\n2. None\r\n"))
+            self.user = mapping["user"][user]
             if user == 2:
                 user == 3
             scope = int(input("Is scope changed? \r\n1. Changed\r\n2. Unchanged\r\n"))
+            self.scope = mapping["scope"][scope]
             if scope == 2:
                 scope == 3
             confidentiality = int(
                 input("What is the impact to data confidentiality?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
+            self.confidentiality = mapping["confidentiality"][confidentiality]
             if confidentiality == 3:
                 confidentiality = 4
             integrity = int(input("What is the impact to data integrity?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
+            self.integrity = mapping["integrity"][integrity]
             if integrity == 3:
                 integrity = 5
             availability = int(input("What is the impact to availability?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
+            self.availability = mapping["availability"][availability]
             if availability == 3:
                 availability = 5
             rating = (
@@ -369,6 +478,7 @@ Useful for overall impact to both technical and business functions"""
     def get_temporal(self):
         print("Getting Temporal Rating")
         base = self.base
+        mapping = self.mapping
         try:
             if base == "Informational":
                 base_score = 1
@@ -385,13 +495,18 @@ Useful for overall impact to both technical and business functions"""
                 "2. No Exploit\r\n"
                 "4. Proof of concept\r\n"
                 "5. Funcitonal Exploit exists\r\n"))
+            self.exploit = mapping["exploit"][exploit]
             remediation = int(input(
                 "Enter remediation level: \r\n"
                 "2. Official Fix\r\n"
                 "3. Temporary Fix\r\n"
                 "4. Workaround\r\n"
                 "5. Unavailable\r\n"))
+            self.remediation = mapping['remediation'][remediation]
+
             report = int(input("Enter Report Confidence: \r\n2. Unknown\r\n3. Reasonable\r\n5. Confirmed\r\n"))
+            self.report_confidence = mapping["report confidence"][report]
+            self.report_confidence_analysis = self.get_explanation()
             temporal = (exploit + remediation + report) / 3
             rating = (base_score + temporal) / 2
             if int(round(rating, 0)) == 1:
@@ -414,6 +529,7 @@ Useful for overall impact to both technical and business functions"""
     def get_environmental(self):
         print("Getting Environmental Rating")
         try:
+            mapping = self.mapping
             if self.base == "Informational":
                 base_score = 1
             if self.base == "Low":
@@ -425,30 +541,38 @@ Useful for overall impact to both technical and business functions"""
             if self.base == "Critical":
                 base_score = 5
             attack_vector = int(input(
-                "Enter the attack vector:\r\n"
-                "1. Physical\r\n2. Local\r\n3. Adjacent Network\r\n4. Network (Internet)\r\n"))
-            complexity = int(input("Enter the Attack complexity:\r\n1. High\r\n2. Low"))
+                "Enter the attack vector:\r\n1. Physical\r\n2. Local\r\n3. Adjacent Network\r\n"
+                "4. Network (Internet)\r\n"))
+            self.attack_vector_env = mapping["attack vector"][attack_vector]
+            complexity = int(input("Enter the Attack complexity:\r\n1. High\r\n2. Low\r\n"))
+            self.complexity_env = mapping["complexity"][complexity]
             if complexity == 2:
                 complexity == 5
             privs = int(input("Enter the privileges required:\r\n1. High privs\r\n2. Low privs\r\n3. None\r\n"))
+            self.privs_env = mapping["privileges"][privs]
             if privs == 3:
                 privs = 5
             if privs == 2:
                 privs == 3
             user = int(input("Is user action required?\r\n1. Required\r\n2. None\r\n"))
+            self.user_env = mapping["user"][user]
             if user == 2:
                 user == 3
             scope = int(input("Is scope changed? \r\n1. Changed\r\n2. Unchanged\r\n"))
+            self.scope_env = mapping["scope"][scope]
             if scope == 2:
                 scope == 3
             confidentiality = int(
                 input("What is the impact to data confidentiality?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
+            self.confidentiality_env = mapping["confidentiality"][confidentiality]
             if confidentiality == 3:
                 confidentiality = 4
             integrity = int(input("What is the impact to data integrity?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
+            self.integrity_env = mapping["integrity"][integrity]
             if integrity == 3:
                 integrity = 5
             availability = int(input("What is the impact to availability?\r\n1. None\r\n2. Low\r\n3. High\r\n"))
+            self.availability_env = mapping["availability"][availability]
             if availability == 3:
                 availability = 5
             rating = (
