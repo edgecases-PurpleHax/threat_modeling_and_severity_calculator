@@ -30,7 +30,6 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Program failed: {e}")
         print(threat.rating)
-        next_vulnerability = input("Would you like to rate another vulnerability? ")[
-            0
-        ].lower()
+        next_vulnerability = input(
+            "Would you like to rate another vulnerability? ")[0].lower()
     print("[-] Exiting")
