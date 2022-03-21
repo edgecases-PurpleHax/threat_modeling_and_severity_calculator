@@ -1,5 +1,5 @@
-import time
 import os.path
+import time
 
 
 class Dread:
