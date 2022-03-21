@@ -228,19 +228,59 @@ Escalation of Privileges: Severity of overall escalation of privileges paths ide
 
     def __init__(self):
         self.rating = self.get_rating()
+        self.report = input("Write to report? ")
+        if self.report[0].lower() == "y":
+            self.write_report()
 
     @staticmethod
-    def get_rating():
+    def get_name():
+        name = input("What is the name of the vulnerability/finding?\r\n")
+        return name
+
+    @staticmethod
+    def get_explanation():
+        explanation = input("What is the explanation for this rating?\r\n")
+        return explanation
+
+    def write_report(self):
+        with open(f'{time.strftime("%Y-%m-%d")}_threat_report_STRIDE_method.txt', 'a+') as f:
+            payload = f'-----------------------------\r\n' \
+                      f'Vulnerability name: {self.name}\r\n' \
+                      f'Spoofing Rating: {self.spoofing}\r\n' \
+                      f'Spoofing Analysis: {self.spoofing_explanation}\r\n' \
+                      f'Tampering Rating: {self.tampering}' \
+                      f'Tampering Analysis: {self.tampering_explanation}\r\n' \
+                      f'Repudiation Rating: {self.repudiation}\r\n' \
+                      f'Repudiation Analysis: {self.repudiation_explanation}\r\n' \
+                      f'Information Disclosure Rating: {self.information}\r\n' \
+                      f'Information Disclosure Analysis: {self.information_explanation}\r\n' \
+                      f'Denial of Service Rating: {self.dos}\r\n' \
+                      f'Denial of Service Analysis: {self.dos_explanation}\r\n' \
+                      f'Escalation of Privileges Rating: {self.eop}\r\n' \
+                      f'Escalation of Privileges Analysis: {self.eop_explanation}\r\n' \
+                      f'Overall Rating: {self.rating}\r\n' \
+                      f'-----------------------------'
+            f.write(payload)
+        f.close()
+
+    def get_rating(self):
         input("Rating Threat with STRIDE Model. Enter 1-5 for severity ratings for the following questions. Press "
               "enter to continue")
+        self.name = self.get_name()
         try:
-            spoofing = int(input("What is the potential damage if identified spoofing occurs? "))
-            tampering = int(input("What is the potential damage if identified tampering occurs? "))
-            repudiation = int(input("What is the potential damage if identified repudiation attacks occur? "))
-            information = int(input("What is the sensitivity of the information disclosed? "))
-            dos = int(input("What is the potential service loss if denial of service occurs? "))
-            eop = int(input("What is the risk of elevation of privileges? "))
-            rating = (spoofing + tampering + repudiation + information + dos + eop) / 6
+            self.spoofing = int(input("What is the potential damage if identified spoofing occurs? "))
+            self.spoofing_explanation = self.get_explanation()
+            self.tampering = int(input("What is the potential damage if identified tampering occurs? "))
+            self.tampering_explanation = self.get_explanation()
+            self.repudiation = int(input("What is the potential damage if identified repudiation attacks occur? "))
+            self.repudiation_explanation = self.get_explanation()
+            self.information = int(input("What is the sensitivity of the information disclosed? "))
+            self.information_explanation = self.get_explanation()
+            self.dos = int(input("What is the potential service loss if denial of service occurs? "))
+            self.dos_explanation = self.get_explanation()
+            self.eop = int(input("What is the risk of elevation of privileges? "))
+            self.eop_explanation = self.get_explanation()
+            rating = (self.spoofing + self.tampering + self.repudiation + self.information + self.dos + self.eop) / 6
             if int(round(rating, 0)) == 1:
                 return "This threat is rated as: Informational"
             if int(round(rating, 0)) == 2:
