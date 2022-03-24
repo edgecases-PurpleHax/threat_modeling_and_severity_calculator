@@ -1,0 +1,15 @@
+-----------------------------
+Vulnerability name: Test
+Spoofing Rating: 5
+Spoofing Analysis: Test
+Tampering Rating: 5Tampering Analysis: Test
+Repudiation Rating: 5
+Repudiation Analysis: Test
+Information Disclosure Rating: 5
+Information Disclosure Analysis: Test
+Denial of Service Rating: 5
+Denial of Service Analysis: Test
+Escalation of Privileges Rating: 5
+Escalation of Privileges Analysis: Test
+Overall Rating: This threat is rated as: Critical
+-----------------------------
