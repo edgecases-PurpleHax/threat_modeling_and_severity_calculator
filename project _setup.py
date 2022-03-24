@@ -19,8 +19,7 @@ if not os.path.exists("venv"):
 else:
     print("[-] Virtual environment previously created")
 print("[+] Activating Virtual Environment.")
-this_os = input(
-    "Is this a\r\n1. Linux\r\n2. Mac\r\n3. Windows \r\nmachine?\r\n")
+this_os = input("Is this a\r\n1. Linux\r\n2. Mac\r\n3. Windows \r\nmachine?\r\n")
 try:
     if this_os == "1":
         os.system("source venv/bin/activate")
