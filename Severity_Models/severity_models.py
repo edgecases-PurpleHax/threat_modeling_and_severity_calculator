@@ -23,7 +23,7 @@ Discoverability: How likely is it to discover the threat? (Should always be assu
             self.write_report()
 
     def write_report(self):
-        directory = "Reports/"
+        directory = "Reports/Severity_Reports"
         filename = f'{time.strftime("%Y-%m-%d")}_threat_report_DREAD_method.txt'
         with open(f"{os.path.join(directory, filename)}", "a+") as f:
             payload = (f"-----------------------------\r\n"
@@ -123,7 +123,7 @@ Useful for overall impact to both technical and business functions"""
         return explanation
 
     def write_report(self):
-        directory = "Reports/"
+        directory = "Reports/Severity_Reports"
         filename = f'{time.strftime("%Y-%m-%d")}_threat_report_OWASP_method.txt'
         with open(f"{os.path.join(directory, filename)}", "a+") as f:
             payload = (
@@ -291,7 +291,7 @@ Escalation of Privileges: Severity of overall escalation of privileges paths ide
         return explanation
 
     def write_report(self):
-        directory = "Reports/"
+        directory = "Reports/Severity_Reports"
         filename = f'{time.strftime("%Y-%m-%d")}_threat_report_STRIDE_SEVERITY_method.txt'
         with open(f"{os.path.join(directory, filename)}", "a+") as f:
             payload = (
@@ -453,7 +453,7 @@ Useful for overall impact to both technical and business functions"""
         return explanation
 
     def write_report(self):
-        directory = "Reports/"
+        directory = "Reports/Severity_Reports"
         filename = f'{time.strftime("%Y-%m-%d")}_threat_report_CVSS_method.txt'
         with open(f"{os.path.join(directory, filename)}", "a+") as f:
             payload = (
