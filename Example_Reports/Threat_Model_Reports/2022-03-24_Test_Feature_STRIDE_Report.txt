@@ -1,0 +1,35 @@
+Test Feature STRIDE Report
+Spoofing: 
+     Threat: This is a test Threat for Spoofing IPs
+     Description: Spoof IP, Hack the planet!!!
+     Threat: This is a test Threat for Spoofing ARP
+     Description: Spoof your MAC, Hack the planet!!!
+     Threat: THis is a test Threat for Spoofing DNS
+     Description: Spoof DNS, Hack the planet!!!
+Tampering: 
+     Threat: This is a test token tampering Threat 
+     Description: Tamper with your token
+     Threat: This is a test Request Tampering Threat
+     Description: Tamper with a request
+Repudiation: 
+     Threat: This is a test Repudiation threat
+     Description: Can you tell it was me? 
+Information Disclosure: 
+     Threat: Disclosure of My Sensitive Document
+     Description: What if the attacker found this file in the directory and downloaded it?
+     Threat: Disclosure of Apache Version 1.2?
+     Description: Evil Haxors might map out vulnerabilities :eyes:
+     Threat: Disclosure of Python2.5?
+     Description: Oh no, the haxors know this isn't supported :eyes:
+Denial of Service:
+Threat: Disclosure of No rate limiting??????
+     Description: Millions of requests oh no
+Threat: Disclosure of You locked my account out during a password attack??????
+     Description: Just keep trying, brute force is key
+Threat: Disclosure of DNS Reflection anyone????
+     Description: Bad DNS. Its always DNS
+Elevation of Privileges:
+Threat: ADMIN TOKENSSSS FOR ALL!!!!
+     Description: Copy token, Paste token, Now I am YOU
+Threat: Anyone seen ALL=(ALL) NOPASSWD: ALL?????
+     Description: You know who you are -.-

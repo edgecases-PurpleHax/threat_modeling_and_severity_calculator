@@ -1,0 +1,26 @@
+-----------------------------
+Vulnerability name: Test
+Base Rating: Informational
+    Attack Vector: Network (Internet)
+    Complexity: High
+    Required Privileges: High Level of Privileges
+    Required User Interaction: User Action Required
+    Scope Modification: Changed
+    Impact to Confidentiality: None
+    Impact to Integrity: None
+    Impact to Availability: None
+Temporal Rating: Low
+    Exploit Modifier: No Exploit
+    Available Remediation Modifier: Official Fix
+    Report Confidence Modifier: Unknown
+    Report Confidence Analysis: Test
+Environmental Rating (Base score modified by Environment): Informational
+    Attack Vector: Physical
+    Complexity: High
+    Required Privileges: High Level of Privileges
+    Required User Interaction: User Action Required
+    Scope Modification: Changed
+    Impact to Confidentiality: None
+    Impact to Integrity: None
+    Impact to Availability: None
+-----------------------------

@@ -58,8 +58,8 @@ if __name__ == "__main__":
         next_vulnerability = "y"
         while next_vulnerability.lower()[0] == "y":
             if args.DREAD:
-                print(DREAD.definition)
-                print(DREAD.rating_def)
+                print(Dread.definition)
+                print(Dread.rating_def)
                 vulnerabilty = Dread()
             if args.OWASP:
                 print(Owasp.definition)
