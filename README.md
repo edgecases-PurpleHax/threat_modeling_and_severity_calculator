@@ -22,9 +22,9 @@
 ### STRIDE
 
 - Use this to create a severity rating based on **an already performed** STRIDE threat modeling session. This feature
-  is just to provide the rating based on the identified threats. 
+  is just to provide the rating based on the identified threats.
 - Use -t/--threat-model to perform a STRIDE questionnaire (Walk through a threat model exercise using STRIDE)
-  - Automatically writes a report, named \<date\>\_Feature_Name\_STRIDE\_SESSION.txt. 
+  - Automatically writes a report, named \<date\>\_Feature_Name_STRIDE_SESSION.txt.
   - See Examples files for Report Styling
 
 ### CVSS
@@ -49,4 +49,4 @@ options:
 -D, --DREAD Use this with -s to perform DREAD Severity Rating  
 -S, --STRIDE Use with this -s to perform STRIDE Severity Rating  
 -C, --CVSS Use this with -s to perform CVSS Severity Rating  
--O, --OWASP Use this with -s to perform OWASP Severity Rating  
+-O, --OWASP Use this with -s to perform OWASP Severity Rating
