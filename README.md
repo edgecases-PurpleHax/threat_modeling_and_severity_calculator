@@ -20,5 +20,15 @@ identified in the STRIDE session as well.
 * Use this selection to perform a CVSS rating. It is based on CVSS 3.0 and can have a report written at the end. 
 
 ## How to use the calculator
-1. Run main.py
-2. Follow Prompts
+usage: main.py [-h] [-t] [-s] [-D] [-S] [-C] [-O]  
+
+Threat Modeling and Severity Calculator
+
+options:
+  -h, --help          show this help message and exit  
+  -t, --threat-model  Use to perform a threat model  
+  -s, --severity      Use to perform a severity rating. Use with -O/--OWASP, -S/--STRIDE, -C/--CVSS, or -D/--DREAD  
+  -D, --DREAD         Use with -s to perform DREAD Severity Rating  
+  -S, --STRIDE        Use with -s to perform STRIDE Severity Rating  
+  -C, --CVSS          Use with -s to perform CVSS Severity Rating  
+  -O, --OWASP         Use with -s to perform OWASP Severity Rating  
