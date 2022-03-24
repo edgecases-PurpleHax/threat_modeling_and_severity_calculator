@@ -258,7 +258,7 @@ Useful for overall impact to both technical and business functions"""
             print(f"Program failed: {e}")
 
 
-class Stride:
+class Stride_Severity:
     definition = """
 You must have performed a threat modeling exercise to use this method.
 Spoofing: Severity of overall spoofing attacks identified?
