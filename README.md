@@ -30,6 +30,10 @@
 - Use this selection to perform a CVSS rating. It is based on CVSS 3.0 and can have a report written at the end.
 
 ## How to use the calculator
+* First Usage: python setup_project.py
+  * This will create the needed Directories, create a virtual environment, activate the Virtual Environment, and install 
+  requirements.txt (Currently a blank file, but I have some plans for it)
+* Using the calculator:  
 
 usage: main.py [-h] [-t] [-s] [-D] [-S] [-C] [-O]
 

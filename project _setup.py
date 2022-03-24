@@ -23,15 +23,21 @@ this_os = input("Is this a\r\n1. Linux\r\n2. Mac\r\n3. Windows \r\nmachine?\r\n"
 try:
     if this_os == "1":
         os.system("source venv/bin/activate")
+        print("Virtual environment successfully activated.")
         print("Run deactivate to exit Virtual Environment")
     if this_os == "2":
         os.system("source venv/bin/activate")
+        print("Virtual environment successfully activated.")
         print("Run deactivate to exit Virtual Environment")
     if this_os == "3":
         os.system(".\\venv\\scripts\\activate.bat")
+        print("Virtual environment successfully activated.")
         print("Run venv\\Scripts\\deactivate.bat to exit Virtual Environment")
 except Exception as e:
     print(e)
+print("[+] Installing requirements.txt")
+os.system("pip install -r requirements.txt")
+
 
 print("[+] Complete. Exiting")
 
