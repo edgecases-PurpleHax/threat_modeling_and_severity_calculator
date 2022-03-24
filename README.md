@@ -37,9 +37,9 @@ Threat Modeling and Severity Calculator
 
 options:
 -h, --help show this help message and exit
- -t, --threat-model Use to perform a threat model
- -s, --severity Use to perform a severity rating. Use with -O/--OWASP, -S/--STRIDE, -C/--CVSS, or -D/--DREAD
- -D, --DREAD Use with -s to perform DREAD Severity Rating
- -S, --STRIDE Use with -s to perform STRIDE Severity Rating
- -C, --CVSS Use with -s to perform CVSS Severity Rating
- -O, --OWASP Use with -s to perform OWASP Severity Rating
+-t, --threat-model Use to perform a threat model
+-s, --severity Use to perform a severity rating. Use with -O/--OWASP, -S/--STRIDE, -C/--CVSS, or -D/--DREAD
+-D, --DREAD Use with -s to perform DREAD Severity Rating
+-S, --STRIDE Use with -s to perform STRIDE Severity Rating
+-C, --CVSS Use with -s to perform CVSS Severity Rating
+-O, --OWASP Use with -s to perform OWASP Severity Rating
