@@ -1,0 +1,28 @@
+-----------------------------
+Vulnerability name: Test
+Likelihood rating: 5.0
+Likelihood factor analysis:
+    Skill Level: Test
+    Motive: Test
+    Opportunity: Test
+    Size: Test
+    Discoverability: Test
+    Exploitability: Test
+    Awareness: Test
+    Detection: Test
+Technical Impact rating: 5.0
+Technical Impact analysis:
+    Confidentiality: Test
+    Integrity: Test
+    Availability: Test
+    Accountability: Test
+    Motive: Test
+    Opportunity: Test
+Business Impact rating: 5.0
+Business Impact analysis:
+    Financial: Test
+    Reputation: Test
+    Compliance: Test
+    Privacy: Test
+Overall Rating: This threat is rated as: Critical
+-----------------------------

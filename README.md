@@ -22,8 +22,10 @@
 ### STRIDE
 
 - Use this to create a severity rating based on **an already performed** STRIDE threat modeling session. This feature
-  is just to provide the rating based on the identified threats. Version 2 will include an option to add in the threats
-  identified in the STRIDE session as well.
+  is just to provide the rating based on the identified threats. 
+- Use -t/--threat-model to perform a STRIDE questionnaire (Walk through a threat model exercise using STRIDE)
+  - Automatically writes a report, named \<date\>\_Feature_Name\_STRIDE\_SESSION.txt. 
+  - See Examples files for Report Styling
 
 ### CVSS
 
