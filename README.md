@@ -31,16 +31,15 @@
 
 ## How to use the calculator
 
-usage: main.py [-h] [-t] [-s] [-D] [-S] [-C] [-O]  
+usage: main.py [-h] [-t] [-s] [-D] [-S] [-C] [-O]
 
-Threat Modeling and Severity Calculator  
+Threat Modeling and Severity Calculator
 
 options:  
-  -h, --help          show this help message and exit  
-  -t, --threat-model  Use this to perform a threat model  
-  -s, --severity      Use this to perform a severity rating. Use with -O/--OWASP, -S/--STRIDE, -C/--CVSS, or -D/--DREAD  
-  -D, --DREAD         Use this with -s to perform DREAD Severity Rating  
-  -S, --STRIDE        Use with this -s to perform STRIDE Severity Rating  
-  -C, --CVSS          Use this with -s to perform CVSS Severity Rating  
-  -O, --OWASP         Use this with -s to perform OWASP Severity Rating  
-
+ -h, --help show this help message and exit  
+ -t, --threat-model Use this to perform a threat model  
+ -s, --severity Use this to perform a severity rating. Use with -O/--OWASP, -S/--STRIDE, -C/--CVSS, or -D/--DREAD  
+ -D, --DREAD Use this with -s to perform DREAD Severity Rating  
+ -S, --STRIDE Use with this -s to perform STRIDE Severity Rating  
+ -C, --CVSS Use this with -s to perform CVSS Severity Rating  
+ -O, --OWASP Use this with -s to perform OWASP Severity Rating
