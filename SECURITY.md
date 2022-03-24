@@ -7,10 +7,10 @@ of my applications for 5 years from release with vulnerability remediation/patch
 Use this section to tell people about which versions of your project are
 currently being supported with security updates.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 2.x.x   | :white_check_mark: |
-| 1.x.x   | :white_check_mark: |              |
+| Version | Supported          | EOL|
+| ------- | ------------------ |----|
+| 2.x.x   | :white_check_mark: |3/1/2027|
+| 1.x.x   | :white_check_mark: |3/1/2027|             |
 
 ## Reporting a Vulnerability
 
