@@ -1,7 +1,8 @@
-from Severity_Models.severity_models import *
-from Threat_Modeling.STRIDE import *
 import argparse
 import sys
+
+from Severity_Models.severity_models import *
+from Threat_Modeling.STRIDE import *
 
 
 def parse_args():
