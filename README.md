@@ -30,20 +30,21 @@
 - Use this selection to perform a CVSS rating. It is based on CVSS 3.0 and can have a report written at the end.
 
 ## How to use the calculator
-* First Usage: python setup_project.py
-  * This will create the needed Directories, create a virtual environment, activate the Virtual Environment, and install 
-  requirements.txt (Currently a blank file, but I have some plans for it)
-* Using the calculator:  
+
+- First Usage: python setup_project.py
+  - This will create the needed Directories, create a virtual environment, activate the Virtual Environment, and install
+    requirements.txt (Currently a blank file, but I have some plans for it)
+- Using the calculator:
 
 usage: main.py [-h] [-t] [-s] [-D] [-S] [-C] [-O]
 
 Threat Modeling and Severity Calculator
 
 options:
- -h, --help show this help message and exit
- -t, --threat-model Use this to perform a threat model
- -s, --severity Use this to perform a severity rating. Use with -O/--OWASP, -S/--STRIDE, -C/--CVSS, or -D/--DREAD
- -D, --DREAD Use this with -s to perform DREAD Severity Rating
- -S, --STRIDE Use with this -s to perform STRIDE Severity Rating
- -C, --CVSS Use this with -s to perform CVSS Severity Rating
- -O, --OWASP Use this with -s to perform OWASP Severity Rating
+-h, --help show this help message and exit
+-t, --threat-model Use this to perform a threat model
+-s, --severity Use this to perform a severity rating. Use with -O/--OWASP, -S/--STRIDE, -C/--CVSS, or -D/--DREAD
+-D, --DREAD Use this with -s to perform DREAD Severity Rating
+-S, --STRIDE Use with this -s to perform STRIDE Severity Rating
+-C, --CVSS Use this with -s to perform CVSS Severity Rating
+-O, --OWASP Use this with -s to perform OWASP Severity Rating
