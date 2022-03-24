@@ -77,7 +77,8 @@ if __name__ == "__main__":
                 print("Use python main.py -h for help")
                 sys.exit()
             next_vulnerability = input(
-                "Would you like to Calculate another Vulnerability?")
+                "Would you like to Calculate another Vulnerability?"
+            )
     else:
         print("Use python main.py -h for help")
         sys.exit()
