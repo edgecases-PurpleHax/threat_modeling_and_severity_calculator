@@ -2,7 +2,7 @@
 
 ## Threat Models used
 
-- DREAD
+
 - OWASP
 - STRIDE
 - CVSS
