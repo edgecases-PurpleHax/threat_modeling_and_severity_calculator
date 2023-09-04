@@ -12,6 +12,6 @@
 - [ ] v2.1.x Add in PASTA Threat Modeling Exercise, OWASP Top 10 Threat modeling
 - [ ] v2.2.x Add in Attack Trees (Maybe some cool tree generation? meh, maybe)
 - [ ] v2.3.x Add in hTMM Model (Have to make this as universal as possible right?)
-- [ ] Add a license, that is probably a needed thing since this actually has releases now
-- [ ] Add this to the standard Security tools. 
+- [x] Add a license, that is probably a needed thing since this actually has releases now
+- [x] Add this to the standard Security tools. 
 - [ ] Get with someone that doesn't suck at writing test cases, so I don't have to manually test this everytime I do dev on it
