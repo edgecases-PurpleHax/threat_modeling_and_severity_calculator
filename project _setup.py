@@ -15,7 +15,7 @@ else:
 
 if not os.path.exists("venv"):
     print("Creating Virtual Environment")
-    os.system("python -m venv venv")
+    os.system("python3 -m venv venv")
 else:
     print("[-] Virtual environment previously created")
 print("[+] Activating Virtual Environment.")
