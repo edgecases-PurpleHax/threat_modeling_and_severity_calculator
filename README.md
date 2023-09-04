@@ -50,3 +50,6 @@ options:
 -S, --STRIDE Use with this -s to perform STRIDE Severity Rating  
 -C, --CVSS Use this with -s to perform CVSS Severity Rating  
 -O, --OWASP Use this with -s to perform OWASP Severity Rating  
+
+## Collaborating
+
