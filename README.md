@@ -51,5 +51,11 @@ options:
 -C, --CVSS Use this with -s to perform CVSS Severity Rating  
 -O, --OWASP Use this with -s to perform OWASP Severity Rating  
 
-## Collaborating
+## Contributing
+This project is tracked in Jira. Please follow these steps to ensure proper updates on Jira board. 
+1. Each issue will have a ticket related to it. These tickets will be linked in either the ticket Title or the comments depending on who created the issue and when it was created. 
+2. Make sure to use the branch that is linked to the ticket when working on contributions. 
+3. When committing changes, include the ticket in the commit message, ex. "THREAT-2 Added contributions section to README.md"
+4. For Pull Requests, please title the PR as "Ticket Number" "Action" "Issue Number", ex. "THREAT-2 closes #44". This will close the issue and update the ticket with the PR
+5. Thank you in advance for contributing <3 
 
