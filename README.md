@@ -31,11 +31,19 @@
 
 - Use this selection to perform a CVSS rating. It is based on CVSS 3.0 and can have a report written at the end.
 
+## Installation
+### Basic Installation Instructions
+#### Linux/Mac
+1. run python setup_project.py. This creates needed directories, a virtual environment, activates the virtual environment, and installs requirements.  
+    - Considerations: If you have multiple versions of Python (ie python3 vs python2) make sure to edit setup_project.py to use python3
+2. Follow usage instructions in How to use the calculator
+#### Windows
+
+1. run python setup_project.py. This creates needed directories, a virtual environment, activates the virtual environment, and installs requirements.  
+    - Considerations: Same as Linux. Also, ensure that python is in your path
+2. Follow usage instructions in How to use the calculator
 ## How to use the calculator
 
-- First Usage: python setup_project.py
-  - This will create the needed Directories, create a virtual environment, activate the Virtual Environment, and install
-    requirements.txt (Currently a blank file, but I have some plans for it)
 - Using the calculator:
 
 usage: main.py [-h] [-t] [-s] [-D] [-S] [-C] [-O]
