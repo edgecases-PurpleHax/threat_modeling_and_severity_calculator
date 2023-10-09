@@ -3,6 +3,7 @@ import sys
 
 from Severity_Models.severity_models import *
 from Threat_Modeling.STRIDE import *
+from descriptors import threat_descriptor as td
 
 
 def parse_args():
@@ -45,6 +46,12 @@ def parse_args():
         action="store_true",
         help="Use this with -s to perform OWASP Severity Rating",
     )
+    parser.add_argument(
+        "-T",
+        "--THREAT",
+        action="store_true",
+        help="Provides a brief description of what threat modeling is"
+    )
     args = parser.parse_args()
     return args
 
@@ -78,6 +85,8 @@ if __name__ == "__main__":
                 sys.exit()
             next_vulnerability = input(
                 "Would you like to Calculate another Vulnerability?")
+    if args.THREAT:
+        print(td())
     else:
         print("Use python main.py -h for help")
         sys.exit()
